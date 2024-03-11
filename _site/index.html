@@ -1,1 +1,23 @@
-
+<!DOCTYPE html><!-- (c) 2011 Einar Otto Stangvik, MIT License -->
+<html>
+  <head>
+    <script>
+      function updateStats(memuse) {
+        document.getElementById('rss').innerHTML = memuse.rss;
+        document.getElementById('heapTotal').innerHTML = memuse.heapTotal;
+        document.getElementById('heapUsed').innerHTML = memuse.heapUsed;
+      }
+      var host = "https://cool-paletas-2c033a.netlify.app/.netlify/functions/index:8080";
+      //var host = "./.netlify/functions/index.js:8080";
+      var ws = new WebSocket('wss://' + host + '/');
+      ws.onmessage = function (event) {
+        updateStats(JSON.parse(event.data));
+      };
+    </script>
+  </head>
+  <body>
+    RSS: <div id='rss'></div><br>
+    Heap total: <div id='heapTotal'></div><br>
+    Heap used: <div id='heapUsed'></div><br>
+  </body>
+</html>
