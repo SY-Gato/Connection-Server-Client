@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node functions/index.js",
-    "build": "echo 'No Build Scripts Required.' && echo '"
+    "build": "echo 'No Build Scripts Required.' && echo 'Will The Server Ever Work?'"
   },
   "keywords": [],
   "author": "SY-Gato",
