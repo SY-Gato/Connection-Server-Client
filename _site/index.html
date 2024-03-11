@@ -2,7 +2,8 @@
 <html>
   <head>
     <script>
-      console.log("Hi");
+      alert("Hi");
+      try {
       function updateStats(memuse) {
         document.getElementById('rss').innerHTML = memuse.rss;
         document.getElementById('heapTotal').innerHTML = memuse.heapTotal;
@@ -14,6 +15,9 @@
       ws.onmessage = function (event) {
         updateStats(JSON.parse(event.data));
       };
+      } catch (e) {
+        alert(e);
+      }
     </script>
   </head>
   <body>
