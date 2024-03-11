@@ -12,8 +12,16 @@
       var host = "cool-paletas-2c033a.netlify.app/.netlify/functions/index";
       //var host = "./.netlify/functions/index.js:8080";
       var ws = new WebSocket('wss://' + host + '/');
+      ws.onopen = function (event) {
+        alert("Connected");
+      };
       ws.onmessage = function (event) {
+        alert(event.data);
         updateStats(JSON.parse(event.data));
+      };
+      ws.onclose = function(event) {
+        alert("connection closed");
+        alert(event.code);
       };
       } catch (e) {
         alert(e);
