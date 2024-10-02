@@ -17,6 +17,7 @@
       ws.onopen = function (event) {
         alert("Connected");
         ws.send("My name is Hello");
+        ws.send("Ah");
       };
       ws.onmessage = function (event) {
         alert(event.data);
